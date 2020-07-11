@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html
+  lang="pt-br"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:v="urn:schemas-microsoft-com:vml"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- Codificação do texto -->
+    <meta name="viewport" content="width=device-width" />
+    <!-- Forçar a escala inicial não deveria ser necessário -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Use a versão mais recente (borda) do mecanismo de renderização do IE -->
+    <meta name="x-apple-disable-message-reformatting" />
+    <!-- Desativar totalmente a escala automática no iOS 10 Mail -->
+    <meta
+      name="format-detection"
+      content="telephone=no,address=no,email=no,date=no,url=no"
+    />
+    <!-- Diga ao iOS para não vincular automaticamente determinadas likns no texto. -->
+    <title></title>
+    <!-- A tag de título é exibida em notificações por e-mail, como o Android 4.4. -->
+
+    <!-- CSS Reset : INICIO -->
+    <style>
+      /* O que ele faz: Remova espaços ao redor do design de email adicionado por alguns clientes de email. */
+      /* Cuidado: Pode remover o preenchimento / margem e adicionar uma cor de fundo para compor uma janela de resposta. */
+      html,
+      body {
+        margin: 0 !important;
+        padding: 0 !important;
+        height: 100% !important;
+        width: 100% !important;
+      }
+
+      /* O que faz: Para clientes de email redimensionamento de texto pequeno. */
+      * {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+      }
+
+      /* O que faz: Centraliza o email no Android 4.4 */
+      div[style*="margin: 16px 0"] {
+        margin: 0 !important;
+      }
+
+      /* O que faz: Impede que o Outlook adicione espaçamento extra às tabelas. */
+      table,
+      td {
+        mso-table-lspace: 0pt !important;
+        mso-table-rspace: 0pt !important;
+      }
+
+      /* What it does: Replaces default bold style. */
+      th {
+        font-weight: normal;
+      }
+
+      /* O que faz: corrige o problema de preenchimento do webkit. */
+      table {
+        border-spacing: 0 !important;
+        border-collapse: collapse !important;
+        table-layout: fixed !important;
+        margin: 0 auto !important;
+      }
+
+      /* O que faz: impede que o Windows 10 Mail enfatize os links, apesar do CSS inline. Estilos para links sublinhados devem estar em linha. */
+      a {
+        text-decoration: none;
+      }
+
+      /* O que ele faz: usa um método de renderização melhor ao redimensionar imagens no IE. */
+      img {
+        -ms-interpolation-mode: bicubic;
+      }
+
+      /* O que ele faz: uma solução alternativa para clientes de email que se intrometem em links acionados. */
+      a[x-apple-data-detectors],  /* iOS */
+        .unstyle-auto-detected-links a,
+        .aBn {
+        border-bottom: 0 !important;
+        cursor: default !important;
+        color: inherit !important;
+        text-decoration: none !important;
+        font-size: inherit !important;
+        font-family: inherit !important;
+        font-weight: inherit !important;
+        line-height: inherit !important;
+      }
+
+      /* O que ele faz: impede que o Gmail altere a cor do texto nos tópicos da conversa. */
+      .im {
+        color: inherit !important;
+      }
+
+      /* O que faz: impede que o Gmail exiba um botão de download em imagens grandes e não vinculadas. */
+      .a6S {
+        display: none !important;
+        opacity: 0.01 !important;
+      }
+      /* Se o acima não funcionar, adicione uma classe .g-img a qualquer imagem em questão. */
+      img.g-img + div {
+        display: none !important;
+      }
+
+      /* O que ele faz: remove a gutter da direita no aplicativo do Gmail para iOS: iOS app: https://github.com/TedGoas/Cerberus/issues/89  */
+      /* Crie uma dessas consultas de mídia para cada tamanho de viewport adicional que você deseja corrigir */
+
+      /* iPhone 4, 4S, 5, 5S, 5C, e 5SE */
+      @media only screen and (min-device-width: 320px) and (max-device-width: 374px) {
+        u ~ div .email-container {
+          min-width: 320px !important;
+        }
+      }
+      /* iPhone 6, 6S, 7, 8, e X */
+      @media only screen and (min-device-width: 375px) and (max-device-width: 413px) {
+        u ~ div .email-container {
+          min-width: 375px !important;
+        }
+      }
+      /* iPhone 6+, 7+, e 8+ */
+      @media only screen and (min-device-width: 414px) {
+        u ~ div .email-container {
+          min-width: 414px !important;
+        }
+      }
+    </style>
+
+    <!-- O que faz: Faz com que as imagens de fundo em 72ppi Outlook sejam renderizadas no tamanho correto. -->
+    <!--[if gte mso 9]>
+      <xml>
+        <o:OfficeDocumentSettings>
+          <o:AllowPNG />
+          <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+      </xml>
+    <![endif]-->
+
+    <!-- CSS Reset : FIM -->
+
+    <!-- Progressive Enhancements : INICIO -->
+    <style>
+      /* O que faz: estilos de hover para botões */
+      .button-td,
+      .button-a {
+        transition: all 100ms ease-in;
+      }
+      .button-td-primary:hover,
+      .button-a-primary:hover {
+        background: #555555 !important;
+        border-color: #555555 !important;
+      }
+
+      /* Media Queries */
+      @media screen and (max-width: 640px) {
+        .email-container {
+          width: 100% !important;
+          margin: auto !important;
+        }
+
+        /* O que faz: força as células da tabela em linhas de largura total. */
+        .stack-column,
+        .stack-column-center {
+          display: block !important;
+          width: 100% !important;
+          max-width: 100% !important;
+          direction: ltr !important;
+        }
+        /* E centraliza */
+        .stack-column-center {
+          text-align: center !important;
+        }
+
+        /* O que faz: Classe de utilidade genérica para centralização. Útil para imagens, botões e tabelas aninhadas. */
+        .center-on-narrow {
+          text-align: center !important;
+          display: block !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
+          float: none !important;
+        }
+        table.center-on-narrow {
+          display: inline-block !important;
+        }
+
+        /* O que faz: ajuste a tipografia em telas pequenas para melhorar a legibilidade */
+        /*
+            .email-container p {
+                font-size: 17px !important;
+            }
+            */
+
+        /* O que faz: remove a quebra de linha no mobile */
+        .hideThis {
+          display: none !important;
+        }
+      }
+    </style>
+    <!-- Progressive Enhancements : END -->
+  </head>
+  <!--
+        A cor de fundo do email (# 222222) é definida em três locais:
+        1. tag body: para a maioria dos clientes de email
+        2. marca central: para aplicativos móveis do Gmail e do Inbox e versões da Web do Gmail, GSuite, Caixa de entrada, Yahoo, AOL, Líbero, Comcast, freenet, Mail.ru, Orange.fr
+        3. mso condicional: para o Windows 10 Mail
+    -->
+  <body
+    width="100%"
+    style="
+      margin: 0;
+      padding: 0 !important;
+      mso-line-height-rule: exactly;
+      background-color: #ffffff;
+    "
+  >
+    <center style="width: 100%; background-color: #ffffff;">
+      <!--[if mso | IE]>
+            <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #ffffff;">
+            <tr>
+            <td>
+            <![endif]-->
+
+      <!-- Texto do Preheader Visualmente Escondido : INICIO -->
+      <div
+        style="
+          display: none;
+          font-size: 1px;
+          line-height: 1px;
+          max-height: 0px;
+          max-width: 0px;
+          opacity: 0;
+          overflow: hidden;
+          mso-hide: all;
+          font-family: sans-serif;
+        "
+      >
+        <p><b>Subject:</b> Precisa estornar uma compra devido à Covid-19?</p>
+        <p><b>Snippet:</b> Entenda o que você precisa fazer neste momento</p>
+      </div>
+      <!-- Texto do Preheader Visualmente Escondido : FIM -->
+
+      <!-- Crie espaço em branco após o texto de visualização desejado para que os clientes de e-mail não peguem outro texto de distração na visualização da caixa de entrada. Estenda conforme necessário. -->
+      <!-- Visualizar o espaçamento de texto Hack : INICIO -->
+      <div
+        style="
+          display: none;
+          font-size: 1px;
+          line-height: 1px;
+          max-height: 0px;
+          max-width: 0px;
+          opacity: 0;
+          overflow: hidden;
+          mso-hide: all;
+          font-family: sans-serif;
+        "
+      >
+        &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+      </div>
+      <!-- Visualizar o espaçamento de texto Hack : FIM -->
+
+      <!-- Email Body : INICIO -->
+      <table
+        align="center"
+        role="presentation"
+        cellspacing="0"
+        cellpadding="0"
+        border="0"
+        width="640"
+        style="margin: auto;"
+        class="email-container"
+      >
+        <!-- Email Header : INICIO -->
+        <tr>
+          <td
+            align="right"
+            style="padding: 20px 0; text-align: right !important;"
+          >
+            <img
+              src="./images/IADC01.png"
+              width="200"
+              height="50"
+              alt="alt_text"
+              border="0"
+              style="
+                height: auto;
+                font-family: sans-serif;
+                font-size: 15px;
+                line-height: 15px;
+                color: #555555;
+                padding-right: 20px;
+              "
+            />
+          </td>
+        </tr>
+        <!-- Email Header : FIM -->
+
+        <!-- Imagem : INICIO -->
+        <tr>
+          <td
+            style="background-color: rgb(236, 112, 0); padding: 2em;"
+            width="640"
+            height="250"
+            border="0"
+            style="
+              width: 100%;
+              max-width: 640px;
+              height: auto;
+              margin: auto;
+              display: block;
+            "
+            class="g-img"
+          >
+            <img src="./images/IADC02.png" alt="" style="width: 90px;" />
+            <!-- <img src="https://via.placeholder.com/640x320" > -->
+            <p
+              style="
+                color: whitesmoke;
+                font-family: sans-serif;
+                font-size: 30px;
+                font-weight: bold;
+                line-height: 45px;
+              "
+            >
+              Informações importantes sobre compras relacionadas a turismo,
+              cultura e viagens neste momento.
+            </p>
+          </td>
+        </tr>
+        <!-- Imagem : FIM -->
+
+        <!-- 1 Coluna Texto Olá código : INICIO -->
+        <tr>
+          <td style="background-color: #ffffff;">
+            <table
+              role="presentation"
+              cellspacing="0"
+              cellpadding="0"
+              border="0"
+              width="100%"
+            >
+              <tr>
+                <td
+                  style="
+                    padding: 2em;
+                    font-family: sans-serif;
+                    font-size: 15px;
+                    line-height: 20px;
+                  "
+                >
+                  <p
+                    style="
+                      margin: 0 0 10px;
+                      font-size: 20px;
+                      line-height: 30px;
+                      color: rgb(0, 51, 153);
+                      font-weight: bold;
+                    "
+                  >
+                    Olá, código!
+                  </p>
+                  <p style="margin: 0 0 10px; color: grey;">
+                    Você entrou em contato com a Central e Atendimento para
+                    pedir o <b>estorno de uma compra</b>, certo? Conforme as
+                    medidas provisórias nº 925 e nº 948, sempre que a compra ou
+                    a reserva feita com o seu cartão Itaucard seja relacionada a
+                    turismo, viagens ou cultura, orientamos que
+                    <b
+                      >você entre em contato direto com o estabelecimento em que
+                      realizou a compra</b
+                    >
+                    para resolver a questão da melhor forma possível.
+                  </p>
+                </td>
+              </tr>
+
+              <!-- <tr>
+                            <td style="padding: 0 20px 20px;"> -->
+              <!-- Button : BEGIN -->
+              <!-- <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" style="margin: auto;">
+                                    <tr>
+                                        <td class="button-td button-td-primary" style="border-radius: 4px; background: #222222;">
+											<a class="button-a button-a-primary" href="https://google.com/" style="background: #222222; border: 1px solid #000000; font-family: sans-serif; font-size: 15px; line-height: 15px; text-decoration: none; padding: 13px 17px; color: #ffffff; display: block; border-radius: 4px; text-align: center;"> Button</a>
+										</td>
+                                    </tr>
+                                </table>  -->
+              <!-- Button : FIM -->
+              <!-- </td> 
+                        </tr>  -->
+            </table>
+          </td>
+        </tr>
+        <!-- 1 Column Text Olá código : FIM -->
+
+        <!-- Conforme as medidas provisórias ... : INÍCIO -->
+        <tr>
+          <td
+            style="background-color: rgb(250, 247, 245); padding-bottom: 2em;"
+          >
+            <table
+              role="presentation"
+              cellspacing="0"
+              cellpadding="0"
+              border="0"
+              width="100%"
+            >
+              <tr>
+                <td
+                  style="
+                    padding: 2em 2em 1em 2em;
+                    font-family: sans-serif;
+                    font-size: 14px;
+                    line-height: 20px;
+                  "
+                  colspan="5"
+                >
+                  <p style="margin: 0 0 10px; color: grey; font-size: 17px;">
+                    Conforme as medidas provisórias nº 925 e nº 948, as empresas
+                    responsáveis pelas vendas e reservas relacionadas aos
+                    setores mencionados acima não têm obrigação de devolver o
+                    valor pago, entretanto elas precisam assegurar as seguintes
+                    medidas:
+                  </p>
+                </td>
+              </tr>
+
+              <tr>
+                <td
+                  style="
+                    padding: 1em 2em 1em 2em;
+                    font-family: sans-serif;
+                    font-size: 15px;
+                    line-height: 20px;
+                  "
+                >
+                  <img
+                    src="./images/IADC04.png"
+                    alt=""
+                    style="max-width: 50px;"
+                  />
+                </td>
+                <td
+                  colspan="4"
+                  style="
+                    padding: 1em 2em 1em 1em;
+                    font-family: sans-serif;
+                    font-size: 15px;
+                    line-height: 20px;
+                  "
+                >
+                  <p style="margin: 0 0 10px; color: grey; font-size: 15px;">
+                    <span style="color: rgb(0, 51, 153); font-weight: bold;"
+                      >Remarcação de serviços</span
+                    >, reservas e eventos cancelados;
+                  </p>
+                </td>
+              </tr>
+
+              <tr>
+                <td colspan="5">
+                  <hr width="90%" color="#ec7000" />
+                </td>
+              </tr>
+
+              <tr>
+                <td
+                  style="
+                    padding: 1em 2em 1em 2em;
+                    font-family: sans-serif;
+                    font-size: 15px;
+                    line-height: 20px;
+                  "
+                >
+                  <img
+                    src="./images/IADC05.png"
+                    alt=""
+                    style="max-width: 50px;"
+                  />
+                </td>
+                <td
+                  colspan="4"
+                  style="
+                    padding: 1em 2em 1em 1em;
+                    font-family: sans-serif;
+                    font-size: 15px;
+                    line-height: 20px;
+                  "
+                >
+                  <p style="margin: 0 0 10px; color: grey; font-size: 15px;">
+                    <span style="color: rgb(0, 51, 153); font-weight: bold;"
+                      >Disponibilização de crédito para uso ou abatimento na
+                      compra</span
+                    >de outros serviços, reservas e eventos, disponíveis nas
+                    respctivas empresas, ou outro acordo a ser formalizado com o
+                    consumidor;
+                  </p>
+                </td>
+              </tr>
+
+              <tr>
+                <td colspan="5">
+                  <hr width="90%" color="#ec7000" />
+                </td>
+              </tr>
+
+              <tr>
+                <td
+                  style="
+                    padding: 1em 2em 1em 2em;
+                    font-family: sans-serif;
+                    font-size: 15px;
+                    line-height: 20px;
+                  "
+                >
+                  <img
+                    src="./images/IADC06.png"
+                    alt=""
+                    style="max-width: 50px;"
+                  />
+                </td>
+                <td
+                  colspan="4"
+                  style="
+                    padding: 1em 2em 1em 1em;
+                    font-family: sans-serif;
+                    font-size: 15px;
+                    line-height: 20px;
+                  "
+                >
+                  <p style="margin: 0 0 10px; color: grey; font-size: 15px;">
+                    <span style="color: rgb(0, 51, 153); font-weight: bold;"
+                      >Remarcação para os próximos 12 meses sem custo adicional
+                      para passagens</span
+                    >compradas até 31 de dezembro de 2020. O passageiro pode
+                    solicitar o cancelamento, mas, nesse caso, poderá ser
+                    cobrada uma eventual penalidade prevista em contrato, e o
+                    ressarcimento pode ser feito em até 12x.
+                  </p>
+                </td>
+              </tr>
+
+              <tr>
+                <td colspan="5">
+                  <hr width="90%" color="#ec7000" />
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <!-- Conforme as medidas provisórias ... : FIM -->
+
+        <!-- Confira na íntegra : INÍCIO -->
+        <tr>
+          <td style="padding: 8% 3% 8% 3%;">
+            <table
+              role="presentation"
+              cellspacing="0"
+              cellpadding="0"
+              border="0"
+              width="100%"
+              style="border: 1px solid rgb(236, 112, 0); border-collapse: initial !important; border-radius: 1em; !important"
+            >
+              <tr>
+                <td
+                  style="
+                    padding: 2em;
+                    font-family: sans-serif;
+                    font-size: 15px;
+                    line-height: 20px;
+                  "
+                  colspan="2"
+                >
+                  <p
+                    style="
+                      margin: 0 0 10px;
+                      color: rgb(0, 51, 153);
+                      font-size: 17px;
+                      font-weight: bold;
+                      text-align: center;
+                    "
+                  >
+                    Confira na íntegra as duas medidas provisórias e entenda
+                    quais são seus direitos:
+                  </p>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <a href=""
+                    ><img
+                      src="./images/IADC07.png"
+                      alt=""
+                      style="
+                        max-width: 80%;
+                        padding: 2em 0.5em 2em 2em;
+                        cursor: pointer;
+                      "
+                  /></a>
+                </td>
+                <td>
+                  <a href=""
+                    ><img
+                      src="./images/IADC08.png"
+                      alt=""
+                      style="
+                        max-width: 80%;
+                        padding: 2em 2em 2em 0.5em;
+                        cursor: pointer;
+                      "
+                  /></a>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <!-- Confira na íntegra : FIM  -->
+
+        <!-- Acesse nossos canais : INÍCIO  -->
+        <tr>
+          <td style="background-color: rgb(238, 233, 228);">
+            <table
+              role="presentation"
+              cellspacing="0"
+              cellpadding="0"
+              style="
+                font-family: sans-serif;
+                font-size: 90%;
+                line-height: 20px;
+                color: rgb(0, 51, 153);
+                vertical-align: middle;
+              "
+            >
+              <tr>
+                <td style="width: 49.5%;">
+                  <table style="width: 100%; height: 100%;">
+                    <tr>
+                      <td
+                        style="
+                          font-weight: bold;
+                          color: rgb(236, 112, 0);
+                          padding: 0px 0px 10px 28px;
+                        "
+                      >
+                        Acesse nossos canais digitais.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 0px 10px 10px 28px;">
+                        Durante esse momento delicado, nossas centrais estão
+                        operando com capacidade reduzida. Dê preferência aos
+                        canais digitais.
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+
+                <td width="1px" style="text-align: center; padding: 22px;">
+                  <img src="./images/IADC11.png" alt="" height="65%" />
+                </td>
+
+                <td style="width: 49.5%;">
+                  <table style="width: 100%;">
+                    <tr>
+                      <td style="text-align: center; width: 30%;">
+                        <img src="./images/IADC09.png" alt="" width="35px" />
+                      </td>
+                      <td
+                        style="text-align: left; width: 70%; font-weight: bold; font-size: 80%;"
+                      >
+                        itaucard.com.br
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: center; width: 30%;">
+                        <img src="./images/IADC10.png" alt="" width="35px" />
+                      </td>
+                      <td style="text-align: left; width: 70%; font-size: 80%;">
+                        app no celular
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr>
+                <td colspan="3">
+                  <hr width="90%" />
+                </td>
+              </tr>
+
+              <tr>
+                <td colspan="3" style="padding: 18px;">
+                  <table
+                    style="
+                      text-align: center;
+                      color: rgb(0, 51, 153);
+                      width: 100%;
+                    "
+                  >
+                    <tr style="font-weight: bold;">
+                      <td style="width: 33.33%;">SAC</td>
+                      <td style="width: 33.33%;">Ouvidoria</td>
+                      <td style="width: 33.33%;">Deficiente auditivo / fala</td>
+                    </tr>
+                    <tr>
+                      <td>0800 724 4845</td>
+                      <td>0800 570 0011</td>
+                      <td>0800 724 4838</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <!-- Acesse nossos canais : FIM  -->
+      </table>
+
+      <!-- Email Body : FIM -->
+
+      <!--[if mso | IE]>
+    </td>
+    </tr>
+    </table>
+    <![endif]-->
+    </center>
+  </body>
+</html>
